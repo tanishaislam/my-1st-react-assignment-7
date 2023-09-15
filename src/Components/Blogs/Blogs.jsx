@@ -19,10 +19,10 @@ const [totalPrice, setTotalPrice] = useState(0);
     },[])
 
     const handleBlogBtnClick = (blogs) =>{
-        const isExites = selectBlogs.find(item => item.id === blogs.id);
+        const findBlog = selectBlogs.find(item => item.id === blogs.id);
         let total = blogs.price;
         let count = blogs.credit;
-        if(isExites){
+        if(findBlog){
            return Swal.fire('You have already select this course.');
         }else{
             selectBlogs.forEach(item => {
