@@ -1,7 +1,8 @@
 # Question Answer
 - img area you are added some video
 - when we are click selected button then added show a card 
-- added search box
+- add search box
+- add bokmark icon
 
 
 this assaignment project manage by tailwind css and sweet alert message.
