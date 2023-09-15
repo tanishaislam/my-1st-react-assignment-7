@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import Cart from '../Cart/Cart';
+import Swal from 'sweetalert2'
 
 
 const Blogs = () => {
@@ -22,7 +23,7 @@ const [totalPrice, setTotalPrice] = useState(0);
         let total = blogs.price;
         let count = blogs.credit;
         if(isExites){
-           return alert('This Card Is Already Selected')
+           return Swal.fire('You have already select this course.');
         }else{
             selectBlogs.forEach(item => {
                 count = count + item.credit;
@@ -30,7 +31,7 @@ const [totalPrice, setTotalPrice] = useState(0);
         }
         const totalRemaining = 20 - count;
         if(count > 20){
-            return alert('Card selected is 20 credit over')
+            return Swal.fire('Your credit hours limit is over.')
         }
 
         selectBlogs.forEach(item => {
