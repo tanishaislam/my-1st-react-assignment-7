@@ -5,7 +5,8 @@ import Cart from '../Cart/Cart';
 
 
 const Blogs = () => {
-const [allBlogs, setAllBlogs] =useState([])
+const [allBlogs, setAllBlogs] =useState([]);
+const [selectBlogs, setSelectBlogs] = useState([]);
 
     useEffect(()=>{
         fetch('./data.json')
@@ -13,6 +14,9 @@ const [allBlogs, setAllBlogs] =useState([])
         .then(data => setAllBlogs(data))
     },[])
 
+    const handleBlogBtnClick = (blogs) =>{
+        setSelectBlogs([...selectBlogs, blogs])
+    }
 
     return (
         <div className="container mx-auto mt-8">
@@ -38,7 +42,7 @@ const [allBlogs, setAllBlogs] =useState([])
                                         </svg></span>
                                         <p>Credit: {blogs.credit}</p>
                                     </div>
-                                    <button className='bg-blue-500 text-white font-semibold px-[118px] py-1 rounded-md text-lg'>Select</button>
+                                    <button onClick={() => handleBlogBtnClick(blogs)} className='bg-blue-500 text-white font-semibold px-[118px] py-1 rounded-md text-lg'>Select</button>
                                 </div>
                         ))
                     }
@@ -47,7 +51,7 @@ const [allBlogs, setAllBlogs] =useState([])
 {/* cart added area is start */}
 
                 <div>
-                    <Cart></Cart>
+                    <Cart selectBlogs= {selectBlogs}></Cart>
                 </div>
             </div>
             
